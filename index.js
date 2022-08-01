@@ -100,3 +100,5 @@ Teacher.prototype.greet = function () {
 };
 
 teacher1.greet(); //Pedro teaches Mathematics
+
+

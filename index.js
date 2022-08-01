@@ -61,18 +61,42 @@ function Student(name, grade) {
 let student1 = new Student('Kamal', 6);
 let student2 = new Student('Katherine', 7);
 
-//Adding a property
+//Adding a property in an object
 student1.gender = 'male';
 student2.gender = 'female';
 
 console.log(student1); //{name: "Kamal", grade: 6, gender: "male"}
 console.log(student2); //{name: "Katherine", grade: 7, gender: "female" }
 
-//Adding a method
+//Adding a method in an object
 student1.greet = function () {
   console.log(`Hello ! I am ${this.name}`);
 };
 
 student1.greet(); //Hello ! I am Kamal
-student2.greet(); //Error: student2.greet is not a function
+// student2.greet(); //Error: student2.greet is not a function
 
+//Adding properties and methods in Constructor functions
+// JavaScript Object Prototype
+// ****************************************************
+
+function Teacher(name, subject) {
+  this.name = name;
+}
+
+const teacher1 = new Teacher('Pedro');
+console.log(teacher1); //{name: "Pedro"}
+
+//let's add a property to constructor function
+Teacher.prototype.subject = this.subject;
+
+teacher1.subject = 'Mathematics';
+
+console.log(teacher1); //{name: "Pedro", subject: "Mathematics"}
+
+//let's add a method to constructor function
+Teacher.prototype.greet = function () {
+  console.log(`${this.name} teaches ${this.subject}`);
+};
+
+teacher1.greet(); //Pedro teaches Mathematics
